@@ -12,6 +12,7 @@
   "ok": "确定",
 
   "login": "登录",
+  "skip_login": "跳过登录",
   "agree": "同意",
   "privacy_policy": "隐私政策",
   "feedback_channels": "反馈渠道",

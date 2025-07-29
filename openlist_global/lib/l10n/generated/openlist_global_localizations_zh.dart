@@ -19,6 +19,9 @@ class OpenListGlobalLocalizationsZh extends OpenListGlobalLocalizations {
 
   @override
   String get login => '登录';
+
+  @override
+  String get skip_login => '跳过登录';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -36,6 +39,9 @@ class OpenListGlobalLocalizationsZhCn extends OpenListGlobalLocalizationsZh {
 
   @override
   String get login => '登录';
+
+  @override
+  String get skip_login => '跳过登录';
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hans`).
@@ -53,6 +59,9 @@ class OpenListGlobalLocalizationsZhHans extends OpenListGlobalLocalizationsZh {
 
   @override
   String get login => '登录';
+
+  @override
+  String get skip_login => '跳过登录';
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hant`).
@@ -70,6 +79,9 @@ class OpenListGlobalLocalizationsZhHant extends OpenListGlobalLocalizationsZh {
 
   @override
   String get login => '登錄';
+
+  @override
+  String get skip_login => '跳過登錄';
 }
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
@@ -87,4 +99,7 @@ class OpenListGlobalLocalizationsZhTw extends OpenListGlobalLocalizationsZh {
 
   @override
   String get login => '登錄';
+
+  @override
+  String get skip_login => '跳過登錄';
 }

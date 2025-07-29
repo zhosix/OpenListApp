@@ -39,6 +39,9 @@ class OpenListWebUiLocalizationsZh extends OpenListWebUiLocalizations {
   String get login => '登录';
 
   @override
+  String get skip_login => '跳过登录';
+
+  @override
   String get privacy_policy => '隐私政策';
 
   @override
@@ -171,6 +174,9 @@ class OpenListWebUiLocalizationsZhCn extends OpenListWebUiLocalizationsZh {
 
   @override
   String get login => '登录';
+
+  @override
+  String get skip_login => '跳过登录';
 
   @override
   String get privacy_policy => '隐私政策';
@@ -307,6 +313,9 @@ class OpenListWebUiLocalizationsZhHans extends OpenListWebUiLocalizationsZh {
   String get login => '登录';
 
   @override
+  String get skip_login => '跳过登录';
+
+  @override
   String get privacy_policy => '隐私政策';
 
   @override
@@ -441,6 +450,9 @@ class OpenListWebUiLocalizationsZhHant extends OpenListWebUiLocalizationsZh {
   String get login => '登錄';
 
   @override
+  String get skip_login => '跳過登錄';
+
+  @override
   String get privacy_policy => '隱私政策';
 
   @override
@@ -567,6 +579,9 @@ class OpenListWebUiLocalizationsZhTw extends OpenListWebUiLocalizationsZh {
 
   @override
   String get login => '登錄';
+
+  @override
+  String get skip_login => '跳過登錄';
 
   @override
   String get privacy_policy => '隱私政策';

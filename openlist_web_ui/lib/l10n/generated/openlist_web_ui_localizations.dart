@@ -165,6 +165,12 @@ abstract class OpenListWebUiLocalizations {
   /// **'Login'**
   String get login;
 
+  /// No description provided for @skip_login.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip Login'**
+  String get skip_login;
+
   /// No description provided for @privacy_policy.
   ///
   /// In en, this message translates to:

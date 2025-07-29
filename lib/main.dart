@@ -9,6 +9,7 @@ import 'package:openlist_native_ui/l10n/generated/openlist_native_ui_localizatio
 import 'package:openlist_web_ui/l10n/generated/openlist_web_ui_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
 import 'package:window_manager/window_manager.dart';
 
 import 'l10n/generated/openlist_localizations.dart';
@@ -29,6 +30,14 @@ Future<void> main() async {
       InternalPluginService.instance.start();
     } else {
       InternalPluginService.instance.stop();
+    }
+  }catch (e) {
+    print(e);
+  }
+  bool? WAKE_LOCK_ENABLED = await prefs.getBool(WAKE_LOCK);
+  try {
+    if (WAKE_LOCK_ENABLED != null) {
+      WakelockPlus.toggle(enable: WAKE_LOCK_ENABLED);
     }
   }catch (e) {
     print(e);

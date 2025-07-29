@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:openlist_config/config/config.dart';
 import 'package:openlist_utils/service/internal_plugin_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
 
 final FORGE_ROUND_TASK_ENABLE = "foreg_round_task";
+final WAKE_LOCK = "WAKE_LOCK";
 
 class SystemPage extends StatefulWidget {
   SystemPage({ Key? key}) : super(key: key);
@@ -17,6 +19,7 @@ class SystemPage extends StatefulWidget {
 
 class _SystemPageState extends State<SystemPage> {
   bool foreground = false;
+  bool wakeLock = false;
 
   @override
   void initState() {
@@ -88,6 +91,28 @@ class _SystemPageState extends State<SystemPage> {
       ));
     }
 
+    tilesList.add(ListTile(
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Text("Wake Lock(唤醒锁、防休眠)"),
+        ],
+      ),
+      trailing: Switch(
+        onChanged: (bool newValue) async {
+          SharedPreferences prefs = await SharedPreferences.getInstance();
+          await prefs.setBool(WAKE_LOCK, newValue);
+          setState(() {
+            wakeLock = newValue;
+          });
+          WakelockPlus.toggle(enable: newValue);
+        },
+        value: wakeLock,
+        activeColor: Colors.green,
+        inactiveThumbColor: Colors.red,
+      ),
+    ));
+
     final divided = ListTile.divideTiles(
       context: context,
       tiles: tilesList,
@@ -106,6 +131,12 @@ class _SystemPageState extends State<SystemPage> {
     if (FORGE_ROUND != null && FORGE_ROUND) {
       setState(() {
         foreground = true;
+      });
+    }
+    bool? WAKE_LOCK_ENABLED = await prefs.getBool(WAKE_LOCK);
+    if (WAKE_LOCK_ENABLED != null && WAKE_LOCK_ENABLED) {
+      setState(() {
+        wakeLock = true;
       });
     }
   }

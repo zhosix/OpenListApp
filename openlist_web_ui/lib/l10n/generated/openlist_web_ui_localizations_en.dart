@@ -39,6 +39,9 @@ class OpenListWebUiLocalizationsEn extends OpenListWebUiLocalizations {
   String get login => 'Login';
 
   @override
+  String get skip_login => 'Skip Login';
+
+  @override
   String get privacy_policy => 'Privacy Policy';
 
   @override

@@ -48,6 +48,7 @@ dependencies:
   openiothub_api: ^1.0.5+11
   openiothub_grpc_api: ^1.1.8+2
   network_info_plus: ^6.1.4
+  wakelock_plus: ^1.3.2
 
 dev_dependencies:
   flutter_test:

@@ -19,4 +19,7 @@ class OpenListGlobalLocalizationsEn extends OpenListGlobalLocalizations {
 
   @override
   String get login => 'Login';
+
+  @override
+  String get skip_login => 'Skip Login';
 }

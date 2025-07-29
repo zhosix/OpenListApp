@@ -128,6 +128,12 @@ abstract class OpenListGlobalLocalizations {
   /// In en, this message translates to:
   /// **'Login'**
   String get login;
+
+  /// No description provided for @skip_login.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip Login'**
+  String get skip_login;
 }
 
 class _OpenListGlobalLocalizationsDelegate

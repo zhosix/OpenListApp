@@ -6,6 +6,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:openlist_config/config/config.dart';
 import 'package:openlist_config/config/global.dart';
+import 'package:openlist_web_ui/l10n/generated/openlist_web_ui_localizations.dart';
 import '../l10n/generated/openlist_global_localizations.dart';
 import 'package:openlist_utils/toast.dart';
 import 'package:tdesign_flutter/tdesign_flutter.dart';
@@ -94,8 +95,26 @@ class _LoginPageState extends State<LoginPage> {
           obscureText: true,
           onChanged: (String v) {},
         ),
+      Padding(
+      padding: const EdgeInsets.only(top: 20.0), // 设置顶部距离
+      child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
         Padding(
           padding: const EdgeInsets.only(top: 20.0), // 设置顶部距离
+          child: TDButton(
+              icon: TDIcons.user,
+              text: OpenListGlobalLocalizations.of(context).skip_login,
+              size: TDButtonSize.medium,
+              type: TDButtonType.outline,
+              shape: TDButtonShape.rectangle,
+              theme: TDButtonTheme.defaultTheme,
+              onTap: () async {
+                _skip_login_goto_dashboard();
+              }),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 20.0, left: 20.0), // 设置顶部距离
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -117,8 +136,8 @@ class _LoginPageState extends State<LoginPage> {
                   })
             ],
           ),
-        )
-      ];
+        ),
+      ]))];
     });
   }
 
@@ -134,21 +153,9 @@ class _LoginPageState extends State<LoginPage> {
         //  登录成功
         Map<String, dynamic> data = response.data;
         print(data["data"]["token"]);
-        token = data["data"]["token"];
         // 保存token
-        Navigator.of(context).pop();
-        // 跳转到主页
-        Navigator.push(context, MaterialPageRoute(builder: (ctx) {
-          // TODO select UI
-          // return openlist_native_ui.HomePage();
-          if (Platform.isLinux) {
-           //  由于插件不支持Linux webview所以使用原生界面或者直接使用系统网页打开
-           return openlist_native_ui.HomePage();
-          } else {
-            return openlist_web_ui.HomePage();
-          }
-        }));
-        return;
+        token = data["data"]["token"];
+        _skip_login_goto_dashboard();
       } else {
         //  登录失败
         show_failed("Login failed", context);
@@ -166,5 +173,20 @@ class _LoginPageState extends State<LoginPage> {
       // });
       return;
     }
+  }
+
+  Future<void> _skip_login_goto_dashboard() async {
+        Navigator.of(context).pop();
+        // 跳转到主页
+        Navigator.push(context, MaterialPageRoute(builder: (ctx) {
+          // return openlist_native_ui.HomePage();
+          if (Platform.isLinux) {
+            //  由于插件不支持Linux webview所以使用原生界面或者直接使用系统网页打开
+            return openlist_native_ui.HomePage();
+          } else {
+            return openlist_web_ui.HomePage();
+          }
+        }));
+        return;
   }
 }

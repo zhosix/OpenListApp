@@ -12,6 +12,7 @@
   "ok": "OK",
 
   "login": "Login",
+  "skip_login": "Skip Login",
   "privacy_policy": "Privacy Policy",
 
   "app_name": "App name:",
